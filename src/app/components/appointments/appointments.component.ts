@@ -3,6 +3,8 @@ import { Appointment } from 'src/app/Appointment';
 import {AppointmentService} from "../../services/appointment.service";
 import {User} from "../../User";
 import {PetType} from "../../PetType";
+import {UiService} from "../../services/ui.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-appointments',
@@ -11,12 +13,21 @@ import {PetType} from "../../PetType";
 })
 export class AppointmentsComponent {
   @Input() userByDoctor: User;
+  @Input() isAdmin: boolean = false;
+
+  showAppointments: boolean;
+  subscription: Subscription;
   appointments: Appointment[] = [];
   user: User;
   name: string;
   pet: PetType;
 
-  constructor(private appointmentService: AppointmentService) {
+  idOfSelectedUser: number;
+
+  constructor(private appointmentService: AppointmentService, private uiService: UiService) {
+    this.subscription = this.uiService
+        .onToggleShowAppointments()
+        .subscribe(value => this.showAppointments = value);
   }
 
   ngOnInit(): void {
@@ -28,10 +39,14 @@ export class AppointmentsComponent {
     }
     this.appointmentService.getAppointmentsByUser(this.user.id).subscribe(data => {
       this.appointments = data['appointments']
-      console.log(this.appointments)
     })
     this.name = this.user.name;
     this.pet = this.user.petType;
+  }
+
+  toggleShowAppointments(userId: number) {
+    this.uiService.setIdValue(userId);
+    this.uiService.toggleShowAppointments();
   }
 
   deleteAppointment(appointment: Appointment) {

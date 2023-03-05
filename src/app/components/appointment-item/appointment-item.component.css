@@ -5,7 +5,14 @@
   background: #f4f4f4;
   margin: 5px;
   padding: 10px 20px;
+}
+
+.icon {
   cursor: pointer;
+}
+
+.icon:hover {
+  font-size: 19px;
 }
 
 .task.reminder {
@@ -21,4 +28,8 @@
 .note {
   border: dashed 1px #420588;
   padding: 5px;
+}
+
+.hidden {
+  display: none;
 }

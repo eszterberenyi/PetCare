@@ -2,13 +2,20 @@
   (onAddAppointment)="addAppointment($event)"
 ></app-add-appointment>
 <app-user-info
-  [name]="user.name"
-  [pet]="user.petType"
-></app-user-info>
+	[class]="isAdmin && 'clickable'"
+	[name]="user.name"
+	[pet]="user.petType"
+	[isAdmin]="isAdmin"
+	[userId]="user.id"
+	(userInfoClick)="toggleShowAppointments($event)"
+>
+</app-user-info>
 <div>
 	<app-appointment-item
-			*ngFor="let appointment of appointments" [appointment]="appointment"
-			(onDeleteAppointment)="deleteAppointment(appointment)"
-			(onToggleReminder)="toggleReminder(appointment)"
+		*ngFor="let appointment of appointments" [appointment]="appointment"
+		[userId]="user.id"
+		(onDeleteAppointment)="deleteAppointment(appointment)"
+		(onToggleReminder)="toggleReminder(appointment)"
 	></app-appointment-item>
 </div>
+

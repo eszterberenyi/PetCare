@@ -1,5 +1,9 @@
 <h3
-  [ngStyle]="{'background-color': pet ? '#C7C8CF' : '#410588', color: pet? 'black' : 'white'}"
->
+	[ngClass]="class"
+	(click)="pet && isAdmin ? onClick() : undefined"
+  [ngStyle]="{
+  'background-color': pet ? '#C7C8CF' : '#410588',
+  color: pet? 'black' : 'white'
+  }">
     {{ name }} {{ pet ? '[ ' + pet + ' ]': '' }}
 </h3>

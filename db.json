@@ -31,13 +31,6 @@
   ],
   "appointments": [
     {
-      "id": 1,
-      "userId": 1,
-      "text": "Annual Vaccinations",
-      "day": "March 25th 2pm",
-      "reminder": false
-    },
-    {
       "id": 2,
       "userId": 1,
       "text": "Grooming",
@@ -58,6 +51,13 @@
       "note": "Take supplied pill daily with evening feeding.",
       "userId": 1,
       "id": 4
+    },
+    {
+      "text": "Grooming",
+      "day": "March 10th 10am",
+      "reminder": false,
+      "userId": 3,
+      "id": 5
     }
   ]
 }

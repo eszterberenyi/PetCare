@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {PetType} from "../../PetType";
 
 @Component({
@@ -7,7 +7,16 @@ import {PetType} from "../../PetType";
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent {
+  @Output() userInfoClick: EventEmitter<number> = new EventEmitter();
+
+  @Input() class: string;
   @Input() name: string;
   @Input() pet: PetType;
+  @Input() userId: number;
+  @Input() isAdmin: boolean = false;
+
+  onClick() {
+    this.userInfoClick.emit(this.userId);
+  }
 
 }

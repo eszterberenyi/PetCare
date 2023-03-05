@@ -20,7 +20,7 @@ export class AddAppointmentComponent {
 
   constructor(private uiService: UiService, private toastr: ToastrService) {
     this.subscription = this.uiService
-      .onToggle()
+      .onToggleAddTask()
       .subscribe(value => this.showAddTask = value);
   }
 

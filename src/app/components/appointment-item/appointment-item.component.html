@@ -1,11 +1,12 @@
 <div
-  [ngClass]="{reminder: appointment.reminder}"
+  [ngClass]="{reminder: appointment.reminder, hidden: userId === idOfSelectedUser && !showAppointments}"
   class="task"
   (dblclick)="onToggle(appointment)"
   >
   <h3>
     {{ appointment.text }}
     <fa-icon
+      class="icon"
       (click)="onDelete(appointment)"
       [ngStyle]="{'color': 'darkred'}"
       [icon]="faTimes">
