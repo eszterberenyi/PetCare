@@ -29,7 +29,7 @@
       "name": "Bart Simpson"
     }
   ],
-  "tasks": [
+  "appointments": [
     {
       "id": 1,
       "userId": 1,
@@ -55,15 +55,9 @@
       "text": "Behavior Consult",
       "day": "April 7th 9:20am",
       "reminder": true,
+      "note": "Take supplied pill daily with evening feeding.",
       "userId": 1,
       "id": 4
-    }
-  ],
-  "notes": [
-    {
-      "id": 1,
-      "taskId": 4,
-      "text": "Take supplied pill daily with evening feeding."
     }
   ]
 }
