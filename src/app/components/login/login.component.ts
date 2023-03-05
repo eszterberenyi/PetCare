@@ -29,8 +29,13 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.password == "admin") {
-      this.router.navigate(['/admin'], {state: {name: this.name}});
-      this.nullAllValues();
+      this.loginService.getDoctor(this.name).subscribe({
+        next: (user) => {
+          this.user = user[0]
+          this.router.navigate(['/admin'], {state: {user: this.user as User}});
+          this.nullAllValues();
+        }
+      })
     }
     else {
       this.loginService.getUser(this.name).subscribe({
