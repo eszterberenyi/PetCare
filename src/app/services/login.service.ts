@@ -16,8 +16,8 @@ export class LoginService {
     return this.http.get<User[]>(this.apiUrl);
   }
 
-  getUser(id: number): Observable<User> {
-    const url = `${this.apiUrl}/${id}`;
+  getUser(name: string): Observable<User> {
+    const url = `${this.apiUrl}/?name=${name}`;
     return this.http.get<User>(url);
   }
 

@@ -11,25 +11,20 @@ import {ToastrService} from "ngx-toastr";
 })
 
 export class LoginComponent {
-  users: User[] = []
+  user: User
   @Output() onLogin: EventEmitter<User> = new EventEmitter();
 
   router: Router;
   name: string;
   password: string;
-  id: number;
 
   constructor(router: Router, private loginService: LoginService, private toastr: ToastrService) {
     this.router = router;
-    this.loginService.getUsers().subscribe(
-      (users) => this.users = users
-    );
   }
 
   private nullAllValues() {
     this.name = undefined;
     this.password = undefined;
-    this.id = undefined;
   }
 
   onSubmit() {
@@ -38,16 +33,20 @@ export class LoginComponent {
       this.nullAllValues();
     }
     else {
-      if (this.users.filter(user => user.name === this.name)[0]) {
-        this.id = this.users.filter(user => user.name === this.name)[0].id;
-        this.loginService.getUser(this.id).subscribe( (user) => this.router.navigate(['/tasks'], {state: {user: user as User}}) );
-      }
-      else {
-        this.toastr.info("No such user", '', {
-          positionClass: 'toast-top-center',
-          timeOut: 3000
-        })
-      }
+      this.loginService.getUser(this.name).subscribe({
+        next: (user) => {
+          this.user = user[0]
+          if (this.user) {
+            this.router.navigate(['/tasks'], {state: {user: this.user as User}})
+          }
+          else {
+            this.toastr.info("No such user", '', {
+              positionClass: 'toast-top-center',
+              timeOut: 3000
+            })
+          }
+        },
+      })
       this.nullAllValues();
     }
   }

@@ -17,7 +17,7 @@
       "userId": 1,
       "text": "Annual Vaccinations",
       "day": "March 25th 2pm",
-      "reminder": true
+      "reminder": false
     },
     {
       "id": 2,
@@ -36,7 +36,7 @@
     {
       "text": "Behavior Consult",
       "day": "April 7th 9:20am",
-      "reminder": false,
+      "reminder": true,
       "userId": 1,
       "id": 4
     }
