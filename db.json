@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Amy McAdams",
+      "petType": "Dog"
+    },
+    {
+      "id": 2,
+      "name": "John Doe",
+      "petType": "Cat"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "userId": 1,
+      "text": "Annual Vaccinations",
+      "day": "March 25th 2pm",
+      "reminder": true
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "text": "Grooming",
+      "day": "March 27th 4pm",
+      "reminder": false
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "text": "Checkup",
+      "day": "March 25th 4pm",
+      "reminder": false
+    },
+    {
+      "text": "Behavior Consult",
+      "day": "April 7th 9:20am",
+      "reminder": false,
+      "userId": 1,
+      "id": 4
+    }
+  ]
+}
