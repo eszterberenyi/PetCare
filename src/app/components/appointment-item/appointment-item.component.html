@@ -5,13 +5,23 @@
   >
   <h3>
     {{ appointment.text }}
-    <fa-icon
+    <fa-icon *ngIf="!isAdmin"
       class="icon"
       (click)="onDelete(appointment)"
       [ngStyle]="{'color': 'darkred'}"
       [icon]="faTimes">
     </fa-icon>
+    <fa-icon *ngIf="isAdmin"
+      class="icon"
+      (click)="toggleShowAddNote()"
+      [icon]="faEdit"
+    ></fa-icon>
   </h3>
   <p class="time">{{ appointment.day }}</p>
   <p class="note" *ngIf="appointment.note">{{ appointment.note }}</p>
+  <app-add-note
+    [isAdmin]="isAdmin"
+    [appointment]="appointment"
+    (onAddNote)="onAddNoteTo($event)"
+  ></app-add-note>
 </div>

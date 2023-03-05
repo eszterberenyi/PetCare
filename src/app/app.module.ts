@@ -18,6 +18,7 @@ import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
+import { AddNoteComponent } from './components/add-note/add-note.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     AboutComponent,
     LoginComponent,
     AdminComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,

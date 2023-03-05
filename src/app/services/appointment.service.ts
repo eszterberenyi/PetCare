@@ -47,4 +47,9 @@ export class AppointmentService {
     const url = `${this.tasksApiUrl}`
     return this.http.post<Appointment>(url, task, httpOptions);
   }
+
+  addNote(appointment: Appointment): Observable<Appointment> {
+    const url = `${this.tasksApiUrl}/${appointment.id}`
+    return this.http.put<Appointment>(url, appointment, httpOptions);
+  }
 }

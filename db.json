@@ -35,7 +35,8 @@
       "userId": 1,
       "text": "Grooming",
       "day": "March 27th 4pm",
-      "reminder": false
+      "reminder": true,
+      "note": "Phone 30 mins before please!"
     },
     {
       "id": 3,

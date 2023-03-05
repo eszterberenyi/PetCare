@@ -1,0 +1,14 @@
+<form *ngIf="isAdmin && showAddNote && appointment.id === idOfEdited" class="add-form" (ngSubmit)="onSubmit()">
+	<div class="form-control">
+		<label for="text">Note</label>
+		<input
+			type="text"
+			name="text"
+			[(ngModel)]="text"
+			id="text"
+			placeholder="Add Note"
+		/>
+	</div>
+	<input type="submit" value="Add Note" class="btn"/>
+</form>
+

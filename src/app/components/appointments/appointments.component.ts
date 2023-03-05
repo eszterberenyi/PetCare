@@ -67,4 +67,20 @@ export class AppointmentsComponent {
       (appointment) => this.appointments.push(appointment)
     );
   }
+
+  addNote(appointment: Appointment) {
+    this.appointmentService.addNote(appointment).subscribe(
+        (appointment) => {
+          const temp: Appointment[] = [];
+          for (let a of this.appointments) {
+            if (a.id != appointment.id) {
+              temp.push(a)
+            } else {
+              temp.push(appointment)
+            }
+          }
+          this.appointments = temp;
+        }
+    )
+  }
 }
