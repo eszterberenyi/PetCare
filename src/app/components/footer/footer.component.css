@@ -1,0 +1,17 @@
+footer {
+  margin-top: 30px;
+  text-align: center;
+}
+
+a {
+  display: inline-block;
+  color: black;
+  border: solid darkgrey 1px;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: inherit;
+}

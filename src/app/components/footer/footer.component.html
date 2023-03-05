@@ -1,0 +1,12 @@
+<footer>
+  <a
+    *ngIf="hasRoute('/')"
+    routerLink="about"
+  >About
+  </a>
+  <a
+    *ngIf="!hasRoute('/')"
+    routerLink=""
+  >{{hasRoute('about') ? 'Logout': 'Go Back'}}
+  </a>
+</footer>
