@@ -2,13 +2,31 @@
   "users": [
     {
       "id": 1,
+      "doctorId": 1,
       "name": "Amy McAdams",
       "petType": "Dog"
     },
     {
       "id": 2,
+      "doctorId": 1,
       "name": "John Doe",
       "petType": "Cat"
+    },
+    {
+      "id": 3,
+      "doctorId": 2,
+      "name": "Anna Evans",
+      "petType": "Dog"
+    }
+  ],
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Bethany Smith"
+    },
+    {
+      "id": 2,
+      "name": "Bart Simpson"
     }
   ],
   "tasks": [
@@ -39,6 +57,13 @@
       "reminder": true,
       "userId": 1,
       "id": 4
+    }
+  ],
+  "notes": [
+    {
+      "id": 1,
+      "taskId": 4,
+      "text": "Take supplied pill daily with evening feeding."
     }
   ]
 }
