@@ -1,0 +1,6 @@
+<app-user-info
+  [name]="name"
+></app-user-info>
+<app-tasks
+  *ngFor="let user of users" [adminUser]="user"
+></app-tasks>
