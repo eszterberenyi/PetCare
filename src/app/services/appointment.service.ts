@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Task} from '../Task';
+import {Appointment} from '../Appointment';
 import {Observable} from "rxjs";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {User} from "../User";
@@ -14,37 +14,37 @@ const httpOptions = {
   providedIn: 'root'
 })
 
-export class TaskService {
+export class AppointmentService {
   private usersApiUrl = 'http://localhost:5000/users';
-  private tasksApiUrl = 'http://localhost:5000/tasks';
+  private tasksApiUrl = 'http://localhost:5000/appointments';
 
   constructor(private http: HttpClient) { }
 
   getTasks(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.usersApiUrl}/?_embed=tasks`);
+    return this.http.get<User[]>(`${this.usersApiUrl}/?_embed=appointments`);
   }
 
   getUsersByDoctor(doctorId: number): Observable<User[]> {
     return this.http.get<User[]>(`${this.usersApiUrl}/?doctorId=${doctorId}`);
   }
 
-  getTasksByUser(userId: number): Observable<User> {
-    return this.http.get<User>(`${this.usersApiUrl}/${userId}?_embed=tasks`);
+  getAppointmentsByUser(userId: number): Observable<User> {
+    return this.http.get<User>(`${this.usersApiUrl}/${userId}?_embed=appointments`);
   }
 
-  deleteTask(task: Task): Observable<Task> {
+  deleteAppointment(task: Appointment): Observable<Appointment> {
     const url = `${this.tasksApiUrl}/${task.id}`;
-    return this.http.delete<Task>(url);
+    return this.http.delete<Appointment>(url);
   }
 
-  updateTaskReminder(task: Task): Observable<Task> {
+  updateAppointmentReminder(task: Appointment): Observable<Appointment> {
     const url = `${this.tasksApiUrl}/${task.id}`;
-    return this.http.put<Task>(url, task, httpOptions);
+    return this.http.put<Appointment>(url, task, httpOptions);
   }
 
-  addTask(task: Task, userId: number): Observable<Task> {
+  addTask(task: Appointment, userId: number): Observable<Appointment> {
     task.userId = userId;
     const url = `${this.tasksApiUrl}`
-    return this.http.post<Task>(url, task, httpOptions);
+    return this.http.post<Appointment>(url, task, httpOptions);
   }
 }

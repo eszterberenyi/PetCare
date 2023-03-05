@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {TaskService} from "../../services/task.service";
+import {AppointmentService} from "../../services/appointment.service";
 import {User} from "../../User";
 import {ToastrService} from "ngx-toastr";
 
@@ -12,7 +12,7 @@ export class AdminComponent {
   user: User
   users: User[] = []
 
-  constructor(private taskService: TaskService, private toastr: ToastrService) {
+  constructor(private taskService: AppointmentService, private toastr: ToastrService) {
     this.user = history.state.user;
   }
 

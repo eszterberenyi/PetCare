@@ -1,6 +1,8 @@
 <app-user-info
-  [name]="user.name"
+  [name]="user ? user.name : '' "
 ></app-user-info>
-<app-tasks
-  *ngFor="let user of users" [userByDoctor]="user"
-></app-tasks>
+<div>
+	<app-appointments
+			*ngFor="let user of users" [userByDoctor]="user"
+	></app-appointments>
+</div>

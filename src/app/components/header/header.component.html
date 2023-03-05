@@ -4,7 +4,7 @@
     <h1>{{ title }}</h1>
   </div>
   <app-button
-    *ngIf="hasRoute('/tasks')"
+    *ngIf="hasRoute('/appointments')"
     color="{{showAddTask ? '#5B5B67' : '#6500A0'}}"
     text="{{showAddTask ? 'Close' : 'Add'}}"
     (btnClick)="toggleAddTask()">

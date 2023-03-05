@@ -42,7 +42,7 @@ export class LoginComponent {
         next: (user) => {
           this.user = user[0]
           if (this.user) {
-            this.router.navigate(['/tasks'], {state: {user: this.user as User}})
+            this.router.navigate(['/appointments'], {state: {user: this.user as User}})
           }
           else {
             this.toastr.info("No such user", '', {

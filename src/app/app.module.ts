@@ -10,9 +10,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ButtonComponent } from './components/button/button.component';
-import { TasksComponent } from './components/tasks/tasks.component';
-import { TaskItemComponent } from './components/task-item/task-item.component';
-import { AddTaskComponent } from './components/add-task/add-task.component';
+import { AppointmentsComponent } from './components/appointments/appointments.component';
+import { AppointmentItemComponent } from './components/appointment-item/appointment-item.component';
+import { AddAppointmentComponent } from './components/add-appointment/add-appointment.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
@@ -24,9 +24,9 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
     AppComponent,
     HeaderComponent,
     ButtonComponent,
-    TasksComponent,
-    TaskItemComponent,
-    AddTaskComponent,
+    AppointmentsComponent,
+    AppointmentItemComponent,
+    AddAppointmentComponent,
     FooterComponent,
     AboutComponent,
     LoginComponent,

@@ -1,12 +1,12 @@
 <form *ngIf="showAddTask" class="add-form" (ngSubmit)="onSubmit()">
   <div class="form-control">
-    <label for="text">Task</label>
+    <label for="text">Appointment</label>
     <input
       type="text"
       name="text"
       [(ngModel)]="text"
       id="text"
-      placeholder="Add Task"
+      placeholder="Add Appointment"
     />
   </div>
   <div class="form-control">
@@ -28,5 +28,5 @@
       id="reminder"
     />
   </div>
-  <input type="submit" value="Save Task" class="btn btn-block"/>
+  <input type="submit" value="Save Appointment" class="btn btn-block"/>
 </form>

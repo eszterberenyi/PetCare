@@ -1,0 +1,16 @@
+<div
+  [ngClass]="{reminder: appointment.reminder}"
+  class="task"
+  (dblclick)="onToggle(appointment)"
+  >
+  <h3>
+    {{ appointment.text }}
+    <fa-icon
+      (click)="onDelete(appointment)"
+      [ngStyle]="{'color': 'darkred'}"
+      [icon]="faTimes">
+    </fa-icon>
+  </h3>
+  <p class="time">{{ appointment.day }}</p>
+  <p class="note" *ngIf="appointment.note">{{ appointment.note }}</p>
+</div>

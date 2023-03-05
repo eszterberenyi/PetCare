@@ -1,16 +1,16 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import { Task } from 'src/app/Task';
+import { Appointment } from 'src/app/Appointment';
 import {UiService} from "../../services/ui.service";
 import {Subscription} from "rxjs";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
-  selector: 'app-add-task',
-  templateUrl: './add-task.component.html',
-  styleUrls: ['./add-task.component.css']
+  selector: 'app-add-appointment',
+  templateUrl: './add-appointment.component.html',
+  styleUrls: ['./add-appointment.component.css']
 })
-export class AddTaskComponent {
-  @Output() onAddTask: EventEmitter<Task> = new EventEmitter();
+export class AddAppointmentComponent {
+  @Output() onAddAppointment: EventEmitter<Appointment> = new EventEmitter();
 
   text: string;
   day: string;
@@ -37,7 +37,7 @@ export class AddTaskComponent {
       day: this.day,
       reminder: this.reminder
     }
-    this.onAddTask.emit(newTask);
+    this.onAddAppointment.emit(newTask);
 
     this.text = '';
     this.day = '';
