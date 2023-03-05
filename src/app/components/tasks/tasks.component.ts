@@ -10,7 +10,7 @@ import {PetType} from "../../PetType";
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent {
-  @Input() adminUser: User;
+  @Input() userByDoctor: User;
   tasks: Task[] = [];
   user: User;
   name: string;
@@ -20,8 +20,8 @@ export class TasksComponent {
   }
 
   ngOnInit(): void {
-    if (this.adminUser) {
-      this.user = this.adminUser;
+    if (this.userByDoctor) {
+      this.user = this.userByDoctor;
     }
     else {
       this.user = history.state['user'];

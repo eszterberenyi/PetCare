@@ -1,6 +1,6 @@
 <app-user-info
-  [name]="name"
+  [name]="user.name"
 ></app-user-info>
 <app-tasks
-  *ngFor="let user of users" [adminUser]="user"
+  *ngFor="let user of users" [userByDoctor]="user"
 ></app-tasks>

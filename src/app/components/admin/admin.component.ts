@@ -9,22 +9,22 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent {
-  name: string;
+  user: User
   users: User[] = []
 
   constructor(private taskService: TaskService, private toastr: ToastrService) {
-    this.name = history.state.name;
+    this.user = history.state.user;
   }
 
   ngOnInit() {
-    if (!this.name) {
+    if (!this.user) {
       this.toastr.warning("No authorization for this route!", '', {
         positionClass: 'toast-top-center',
         timeOut: 7000
       })
     }
     else {
-      this.taskService.getTasks().subscribe(users => this.users = users)
+      this.taskService.getUsersByDoctor(this.user.id).subscribe(users => this.users = users)
     }
   }
 }

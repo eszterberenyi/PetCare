@@ -21,7 +21,11 @@ export class TaskService {
   constructor(private http: HttpClient) { }
 
   getTasks(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.usersApiUrl}/?_embed=tasks`)
+    return this.http.get<User[]>(`${this.usersApiUrl}/?_embed=tasks`);
+  }
+
+  getUsersByDoctor(doctorId: number): Observable<User[]> {
+    return this.http.get<User[]>(`${this.usersApiUrl}/?doctorId=${doctorId}`);
   }
 
   getTasksByUser(userId: number): Observable<User> {
