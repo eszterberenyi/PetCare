@@ -19,6 +19,9 @@ import { LoginComponent } from './components/login/login.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { AddNoteComponent } from './components/add-note/add-note.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
@@ -42,7 +45,10 @@ import { AddNoteComponent } from './components/add-note/add-note.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatExpansionModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
