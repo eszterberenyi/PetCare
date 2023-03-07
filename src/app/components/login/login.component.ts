@@ -1,8 +1,9 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {User} from "../../User";
 import {Router} from "@angular/router";
 import {LoginService} from "../../services/login.service";
 import {ToastrService} from "ngx-toastr";
+import {Doctor} from "../../Doctor";
 
 @Component({
   selector: 'app-login',
@@ -11,8 +12,7 @@ import {ToastrService} from "ngx-toastr";
 })
 
 export class LoginComponent {
-  user: User
-  @Output() onLogin: EventEmitter<User> = new EventEmitter();
+  user: User | Doctor
 
   router: Router;
   name: string;
@@ -27,29 +27,32 @@ export class LoginComponent {
     this.password = undefined;
   }
 
+  private validateUser(user: User | Doctor, route: string) {
+    this.user = user[0]
+    if (this.user) {
+      this.router.navigate([route], {state: {user: this.user}})
+    }
+    else {
+      this.toastr.info("No such user", '', {
+        positionClass: 'toast-top-center',
+        timeOut: 3000
+      })
+    }
+  }
+
   onSubmit() {
     if (this.password == "admin") {
       this.loginService.getDoctor(this.name).subscribe({
-        next: (user) => {
-          this.user = user[0]
-          this.router.navigate(['/admin'], {state: {user: this.user as User}});
+        next: (user: Doctor) => {
+          this.validateUser(user, '/admin')
           this.nullAllValues();
         }
       })
     }
     else {
       this.loginService.getUser(this.name).subscribe({
-        next: (user) => {
-          this.user = user[0]
-          if (this.user) {
-            this.router.navigate(['/appointments'], {state: {user: this.user as User}})
-          }
-          else {
-            this.toastr.info("No such user", '', {
-              positionClass: 'toast-top-center',
-              timeOut: 3000
-            })
-          }
+        next: (user: User) => {
+          this.validateUser(user, '/appointments')
         },
       })
       this.nullAllValues();
