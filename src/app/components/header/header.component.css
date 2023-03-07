@@ -5,9 +5,15 @@ header {
   margin-bottom: 20px;
 }
 
-.ge-logo {
+.logo {
   width: 3.5em;
-  animation: rotation 6s infinite linear;
+  transform: rotate(-20deg);
+  transition: all .2s ease-in-out;
+}
+
+.logo:hover {
+  /*animation: rotation 6s infinite linear;*/
+  transform: scale(1.1);
 }
 
 div {
@@ -19,11 +25,11 @@ div {
 
 
 
-@keyframes rotation {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/*@keyframes rotation {*/
+/*  from {*/
+/*    transform: rotate(-20deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(20deg);*/
+/*  }*/
+/*}*/
