@@ -2,6 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 Built on a TODO app tutorial by Traversy Media, this is a project that models a veterinary appointment manager.
+Backend is provided by json-server: https://www.npmjs.com/package/json-server.
 
 ## Development server
 
