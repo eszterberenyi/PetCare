@@ -35,7 +35,7 @@
       "userId": 1,
       "text": "Grooming",
       "day": "March 27th 4pm",
-      "reminder": true,
+      "reminder": false,
       "note": "Phone 30 mins before please!"
     },
     {
@@ -43,7 +43,8 @@
       "userId": 2,
       "text": "Checkup",
       "day": "March 25th 4pm",
-      "reminder": false
+      "reminder": false,
+      "note": "Running late, call to confirm arrival time!"
     },
     {
       "text": "Behavior Consult",
