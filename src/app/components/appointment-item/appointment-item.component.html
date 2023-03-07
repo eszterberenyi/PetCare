@@ -1,5 +1,5 @@
 <div
-  [ngClass]="{reminder: appointment.reminder, hidden: userId === idOfSelectedUser && !showAppointments}"
+  [ngClass]="{reminder: appointment.reminder}"
   class="task"
   (dblclick)="onToggle(appointment)"
   >
@@ -18,10 +18,15 @@
     ></fa-icon>
   </h3>
   <p class="time">{{ appointment.day }}</p>
-  <p class="note" *ngIf="appointment.note">{{ appointment.note }}</p>
+  <div class="note-container">
+    <p class="note" *ngIf="appointment.note">{{ appointment.note }}</p>
+  </div>
   <app-add-note
     [isAdmin]="isAdmin"
     [appointment]="appointment"
     (onAddNote)="onAddNoteTo($event)"
   ></app-add-note>
 </div>
+
+
+<!--, hidden: userId === idOfSelectedUser && !showAppointments-->

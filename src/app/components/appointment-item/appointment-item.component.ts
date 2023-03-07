@@ -3,7 +3,6 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { Appointment } from 'src/app/Appointment';
 import {UiService} from "../../services/ui.service";
-import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-appointment-item',
@@ -21,22 +20,18 @@ export class AppointmentItemComponent {
 
   faTimes = faTimes;
   faEdit = faEdit;
-  showAppointments: boolean;
+  // showAppointments: boolean;
   showAddNote: boolean;
   idOfSelectedUser: number;
 
-  subscriptionToShowAppointment: Subscription;
-  subscriptionToShowAddNote: Subscription;
-  subscriptionToIdValue: Subscription;
-
   constructor(private uiService: UiService) {
-    this.subscriptionToShowAppointment = this.uiService
-        .onToggleShowAppointments()
-        .subscribe(value => this.showAppointments = value);
-    this.subscriptionToIdValue = this.uiService
+    // this.uiService
+    //     .onToggleShowAppointments()
+    //     .subscribe(value => this.showAppointments = value);
+    this.uiService
         .onChangeIdValue()
         .subscribe(value => this.idOfSelectedUser = value);
-    this.subscriptionToShowAddNote = this.uiService
+    this.uiService
         .onToggleAddNote()
         .subscribe(value => this.showAddNote = value)
   }
