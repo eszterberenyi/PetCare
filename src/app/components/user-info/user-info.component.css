@@ -3,11 +3,3 @@ h3 {
   padding: 10px 20px;
   font-size: 1.5em;
 }
-
-.clickable {
-  cursor: pointer;
-}
-
-.clickable:hover {
-  background-color: #999999 !important;
-}
