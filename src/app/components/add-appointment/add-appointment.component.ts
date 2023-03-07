@@ -1,7 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import { Appointment } from 'src/app/Appointment';
 import {UiService} from "../../services/ui.service";
-import {Subscription} from "rxjs";
 import {ToastrService} from "ngx-toastr";
 
 @Component({
@@ -16,31 +15,31 @@ export class AddAppointmentComponent {
   day: string;
   reminder: boolean = false;
   showAddTask: boolean;
-  subscription: Subscription;
 
   constructor(private uiService: UiService, private toastr: ToastrService) {
-    this.subscription = this.uiService
+    this.uiService
       .onToggleAddTask()
       .subscribe(value => this.showAddTask = value);
   }
 
   onSubmit() {
     if (!this.text) {
-      this.toastr.info("No task to add", '', {
+      this.toastr.info("Nothing to add", '', {
         positionClass: 'toast-top-center',
         timeOut: 3000
       })
-      return;
     }
-    const newTask = {
-      text: this.text,
-      day: this.day,
-      reminder: this.reminder
-    }
-    this.onAddAppointment.emit(newTask);
+    else {
+      const newTask = {
+        text: this.text,
+        day: this.day,
+        reminder: this.reminder
+      }
+      this.onAddAppointment.emit(newTask);
 
-    this.text = '';
-    this.day = '';
-    this.reminder = false;
+      this.text = '';
+      this.day = '';
+      this.reminder = false;
+    }
   }
 }

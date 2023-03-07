@@ -1,4 +1,8 @@
-<form *ngIf="isAdmin && showAddNote && appointment.id === idOfEdited" class="add-form" (ngSubmit)="onSubmit()">
+<form
+	*ngIf="isAdmin && showAddNote && appointment.id === idOfEdited"
+	class="add-form"
+	(keydown.enter)="$event.preventDefault()"
+	(ngSubmit)="onSubmit()">
 	<div class="form-control">
 		<label for="text">Note</label>
 		<input

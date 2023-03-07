@@ -1,6 +1,10 @@
-<form *ngIf="showAddTask" class="add-form" (ngSubmit)="onSubmit()">
+<form
+  *ngIf="showAddTask"
+  class="add-form"
+  (keydown.enter)="$event.preventDefault()"
+  (ngSubmit)="onSubmit()">
   <div class="form-control">
-    <label for="text">Appointment</label>
+    <label for="text">Appointment description</label>
     <input
       type="text"
       name="text"
@@ -28,5 +32,15 @@
       id="reminder"
     />
   </div>
-  <input type="submit" value="Save Appointment" class="btn btn-block"/>
+  <input
+    type="submit"
+    value="Save Appointment"
+    class="btn btn-block"
+  />
 </form>
+
+<!--<div class="form-control date">-->
+<!--<label for="date">Day & Time</label>-->
+<!--<input [matDatepicker]="myDatepicker" id="date">-->
+<!--<mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>-->
+<!--<mat-datepicker #myDatepicker></mat-datepicker>-->

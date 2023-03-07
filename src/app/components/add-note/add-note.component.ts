@@ -2,7 +2,6 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Appointment} from "../../Appointment";
 import {UiService} from "../../services/ui.service";
 import {ToastrService} from "ngx-toastr";
-import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-add-note',
@@ -19,14 +18,12 @@ export class AddNoteComponent {
   showAddNote: boolean;
   idOfEdited: number;
 
-  subscriptionToToggleShowNote: Subscription;
-  subscriptionToIdOfEdited: Subscription;
 
   constructor(private uiService: UiService, private toastr: ToastrService) {
-    this.subscriptionToToggleShowNote = this.uiService
+    this.uiService
         .onToggleAddNote()
         .subscribe(value => this.showAddNote = value);
-    this.subscriptionToIdOfEdited = this.uiService
+    this.uiService
         .onChangeIdValueOfAppointment()
         .subscribe(value => this.idOfEdited = value)
   }
@@ -37,11 +34,13 @@ export class AddNoteComponent {
         positionClass: 'toast-top-center',
         timeOut: 3000
       })
-      return;
     }
-    this.appointment.note = this.text;
-    this.onAddNote.emit(this.appointment);
-    this.text = '';
+    else {
+        this.appointment.note = this.text;
+        this.onAddNote.emit(this.appointment);
+        this.text = '';
+    }
   }
-
 }
+
+
