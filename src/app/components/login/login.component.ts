@@ -23,8 +23,8 @@ export class LoginComponent {
   }
 
   private nullAllValues() {
-    this.name = undefined;
-    this.password = undefined;
+    this.name = null;
+    this.password = null;
   }
 
   private validateUser(user: User | Doctor, route: string) {
