@@ -4,26 +4,40 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Built on a TODO app tutorial by Traversy Media, this is a project that models a veterinary appointment manager.
 Backend is provided by json-server: https://www.npmjs.com/package/json-server.
 
+This is a small project intended to give me an overview of Angular.
+
+## Start
+
+Clone the repository and run `npm install`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Run json-server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `json-server --watch db.json --port 5000`.
+Starter data is provided in the db.json file.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Use
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Log in with one of the existing users (any password will work)
+You can add and remove appointments.
 
-## Running end-to-end tests
+![user](src/assets/screenshots/user.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Or log in with a doctor's account using the password 'admin' and view or comment on existing appointments.
 
-## Further help
+![doctor](src/assets/screenshots/doctor.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The username is validated.
+
+![validation](src/assets/screenshots/validation.png)
+
+When trying to directly access the admin route without authorization the application prevents it.
+
+![unauthorized](src/assets/screenshots/unauthorized.png)

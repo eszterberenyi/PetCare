@@ -36,7 +36,7 @@
       "text": "Grooming",
       "day": "March 27th 4pm",
       "reminder": false,
-      "note": "Phone 30 mins before please!"
+      "note": "Phone before"
     },
     {
       "id": 3,
@@ -49,7 +49,7 @@
     {
       "text": "Behavior Consult",
       "day": "April 7th 9:20am",
-      "reminder": true,
+      "reminder": false,
       "note": "Take supplied pill daily with evening feeding.",
       "userId": 1,
       "id": 4
@@ -60,6 +60,13 @@
       "reminder": false,
       "userId": 3,
       "id": 5
+    },
+    {
+      "text": "Vaccination",
+      "day": "September 2nd 10am",
+      "reminder": true,
+      "userId": 1,
+      "id": 6
     }
   ]
 }
