@@ -25,7 +25,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## Use
 
-Log in with one of the existing users (any password will work)
+Log in with one of the existing users (any password will work).
 You can add and remove appointments.
 
 ![user](src/assets/screenshots/user.png)
